@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Angular Guess Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="MegaGuess" ng-controller="GameController">
+    <div class="container">
+        <p>{{title}}</p>
+        <div class="guess-info">
+
+            <div>
+                Ciri-cirinya {{displayDesc}}
+            </div>
+            <div>
+                Nyawa kalean : {{guesses}}
+            </div>
+            <div>
+                Huruf yg salah : <span ng-repeat="letter in incorrectLettersChosen">{{letter}}</span>
+            </div>
+            <div>
+                Huruf yang bener :  <span ng-repeat="letters in correctLettersChosen">{{letters}}</span>
+            </div>
+        </div>
+       
+        <div class="display-word">
+            You have to guess  {{displayWord}}
+        </div>
+        <div>
+            <input type="text" name="guess" ng-model="input.letter" ng-keypress="($event.which === 13) && letterChosen()" />
+            <button ng-click="letterChosen()">Submit</button>
+        </div>
+    </div>
+</body>
+</html>
